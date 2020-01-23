@@ -441,7 +441,8 @@ class SubmitSLURM(SubmitPBS):
         self.write_option(f, '--job-name="glidein"')
         self.write_option(f, '--nodes=%d'%num_nodes)
         self.write_option(f, '--ntasks-per-node=%d'%num_cpus)
-        self.write_option(f, '--mem=%d'%(mem))
+        #self.write_option(f, '--mem=%d'%(mem))
+        self.write_option(f, '--mem-per-cpu=%d'%(mem))
         if num_gpus:
             gpu_submit = '--gres=gpu:%d'
             if 'gpu_submit' in self.config['SubmitFile']:
